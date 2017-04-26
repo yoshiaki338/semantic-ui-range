@@ -127,7 +127,8 @@ $.fn.range = function(parameters) {
 					return Math.round(ratio * $(inner).width()) + $(trackLeft).position().left - offset;
 				},
 
-				setValue: function(newValue, triggeredByUser = true) {
+				setValue: function(newValue, triggeredByUser) {
+					triggeredByUser = triggeredByUser || true;
 					if(settings.input) {
 						$(settings.input).val(newValue);
 					}
@@ -192,7 +193,8 @@ $.fn.range = function(parameters) {
 					}
 				},
 				
-				setValuePosition: function(val, triggeredByUser = true) {
+				setValuePosition: function(val, triggeredByUser) {
+					triggeredByUser = triggeredByUser || true;
 					var position = module.determinePosition(val);
 					module.setPosition(position);
 					module.setValue(val, triggeredByUser);
