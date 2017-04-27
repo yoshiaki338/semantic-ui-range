@@ -128,7 +128,7 @@ $.fn.range = function(parameters) {
 				},
 
 				setValue: function(newValue, triggeredByUser) {
-					triggeredByUser = triggeredByUser || true;
+					triggeredByUser = (triggeredByUser === undefined) ? true : triggeredByUser;
 					if(settings.input) {
 						$(settings.input).val(newValue);
 					}
@@ -194,7 +194,7 @@ $.fn.range = function(parameters) {
 				},
 				
 				setValuePosition: function(val, triggeredByUser) {
-					triggeredByUser = triggeredByUser || true;
+					triggeredByUser = (triggeredByUser === undefined) ? true : triggeredByUser;
 					var position = module.determinePosition(val);
 					module.setPosition(position);
 					module.setValue(val, triggeredByUser);
